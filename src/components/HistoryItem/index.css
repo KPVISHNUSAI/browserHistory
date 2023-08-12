@@ -1,0 +1,37 @@
+.tab-history-container {
+  display: flex;
+  padding: 20px;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.del-btn {
+  height: 30px;
+  width: 30px;
+  margin-left: auto;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+
+.del-img {
+  height: 20px;
+  width: 20px;
+}
+
+.domain-logo {
+  height: 30px;
+  width: 30px;
+  margin: 10px 40px 0px 40px;
+}
+
+a {
+  margin: 15px 0px 0px 20px;
+  color: #475569;
+}
