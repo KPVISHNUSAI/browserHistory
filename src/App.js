@@ -104,8 +104,10 @@ class App extends Component {
     const {searchInput, HistoryList} = this.state
     console.log(searchInput)
     const searchResults = HistoryList.filter(eachUrl =>
-      eachUrl.title.toLowerCase().includes(searchInput),
+      eachUrl.title.toLowerCase().includes(searchInput.toLowerCase()),
     )
+    const isHistoryEmpty = HistoryList.length === 0
+    const isSearchResultEmpty = searchResults.length === 0
     return (
       <div className="main-container">
         <div className="input-form-container">
@@ -132,15 +134,21 @@ class App extends Component {
           </div>
         </div>
         <div className="list-container">
-          <ul>
-            {searchResults.map(eachTab => (
-              <HistoryItem
-                onDeleteHistory={this.onDeleteHistory}
-                HistoryDetails={eachTab}
-                key={eachTab.id}
-              />
-            ))}
-          </ul>
+          {isHistoryEmpty || isSearchResultEmpty ? (
+            <div className="no-history-template">
+              <p>There is no history to show</p>
+            </div>
+          ) : (
+            <ul>
+              {searchResults.map(eachTab => (
+                <HistoryItem
+                  onDeleteHistory={this.onDeleteHistory}
+                  HistoryDetails={eachTab}
+                  key={eachTab.id}
+                />
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     )

@@ -12,9 +12,14 @@ const HistoryItem = props => {
         <p>{timeAccessed}</p>
         <img className="domain-logo" src={logoUrl} alt="domain logo" />
         <p>{title}</p>
-        <a href={domainUrl}>{domainUrl}</a>
+        <p className="domain-url">{domainUrl}</p>
       </div>
-      <button type="button" className="del-btn" onClick={onDelete}>
+      <button
+        type="button"
+        className="del-btn"
+        onClick={onDelete}
+        data-testid="delete"
+      >
         <img
           className="del-img"
           alt="delete"
